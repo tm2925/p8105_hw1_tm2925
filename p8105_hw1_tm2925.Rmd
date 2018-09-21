@@ -59,7 +59,7 @@ hw1_q2_df = tibble(
 )
 ```
 
-**The size of the dataset is `r length(hw1_q2_df$x)`. The mean of x is `r mean(hw1_q2_df$x)`. The median of x is `r median(hw1_q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)`.**
+**The size of the dataset is `r nrow(hw1_q2_df)` rows and `r ncol(hw1_q2_df)` columns. The mean of x is `r mean(hw1_q2_df$x)`. The median of x is `r median(hw1_q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)`.**
 
 ## Creating scatterplots
 ```{r scatterplots}
