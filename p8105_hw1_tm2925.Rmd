@@ -59,14 +59,19 @@ hw1_q2_df = tibble(
 )
 ```
 
-```{r short description of inline R code}
-length(hw1_q2_df$x)
-mean(hw1_q2_df$x)
-median(hw1_q2_df$x)
+**The size of the dataset is `r length(hw1_q2_df$x)`. The mean of x is `r mean(hw1_q2_df$x)`. The median of x is `r median(hw1_q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)`.**
 
-## proportion of logical vector that is TRUE is the number of TRUEs divided by the total length.
-sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)
+## Creating scatterplots
+```{r scatterplots}
+ggplot(hw1_q2_df, aes(x, y, color = vec_logical_xy)) + geom_point()
+
+ggplot(hw1_q2_df, aes(x, y, color = vec_numeric_xy)) + geom_point()
+
+ggplot(hw1_q2_df, aes(x, y, color = vec_factor_xy)) + geom_point()
+
+ggsave("HW_1_tm2925_scatter_plots.pdf", height = 4, width = 6)
 ```
 
-**The size of the dataset is `r length(hw1_q2_df$x)`. The mean of x is `r mean(hw1_q2_df$x)`. The median of x is `r median(hw1_q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)`.**
+**Comment on color scales.**
+_All scatterplots are similar in apperance. The logical and factor vector plots are exactly the same, but the legends differ (TRUE/FALSE) vs (0/1). The numeric vector displays a color scale, but since the vector only contains two options, only the colors at the two extremes (0/1) are displayed._  
 
