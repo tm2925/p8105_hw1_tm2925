@@ -1,0 +1,22 @@
+
+---
+title: "Homework 1 (tm2925)"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+## HW 1: Problem 1
+Create a data frame with a random sample of 10 with a uniform distribution, logical vector witih elements greater than 2, character vector and factor vector.
+
+```{r data frame for problem 1}
+hw1_q1_df = tibble(
+  samp = runif(10, 0, 5),
+  vec_logical = samp > 2,
+  vec_character = c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'),
+  vec_factor = factor(c(vec_character))
+)
+
