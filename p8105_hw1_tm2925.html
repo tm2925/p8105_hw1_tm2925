@@ -133,7 +133,31 @@ $(document).ready(function () {
   vec_logical = samp &gt; 2,
   vec_character = c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'),
   vec_factor = factor(c(vec_character))
-)</code></pre>
+)
+
+##taking the mean of each variable
+mean(hw1_q1_df$vec_logical)</code></pre>
+<pre><code>## [1] 0.7</code></pre>
+<pre class="r"><code>mean(hw1_q1_df$vec_character)</code></pre>
+<pre><code>## Warning in mean.default(hw1_q1_df$vec_character): argument is not numeric
+## or logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(hw1_q1_df$vec_factor)</code></pre>
+<pre><code>## Warning in mean.default(hw1_q1_df$vec_factor): argument is not numeric or
+## logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p><strong>What works and what doesn’t? Why?</strong> <em>The mean of a logical vector works, the mean of character or factor vectors do not work.</em></p>
+<pre class="r"><code>##coercing vectors
+as.numeric(hw1_q1_df$vec_logical)
+as.numeric(hw1_q1_df$vec_character)
+as.numeric(hw1_q1_df$vec_factor)</code></pre>
+<pre class="r"><code>##convert your character variable from character to factor to numeric; convert your factor variable from factor to character to numeric
+as.numeric(as.factor(hw1_q1_df$vec_character))</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>as.numeric(as.character(hw1_q1_df$vec_factor))</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA</code></pre>
+<p><strong>What happens?</strong> <em>Character vectors are not able to be coerced into numeric vectors. This causes a warning message and NA.</em></p>
 </div>
 
 

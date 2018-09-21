@@ -20,3 +20,27 @@ hw1_q1_df = tibble(
   vec_factor = factor(c(vec_character))
 )
 
+##taking the mean of each variable
+mean(hw1_q1_df$vec_logical)
+mean(hw1_q1_df$vec_character)
+mean(hw1_q1_df$vec_factor)
+```
+**What works and what doesn’t? Why?**
+_The mean of a logical vector works, the mean of character or factor vectors do not work._
+
+```{r coerce as numeric, eval=FALSE}
+##coercing vectors
+as.numeric(hw1_q1_df$vec_logical)
+as.numeric(hw1_q1_df$vec_character)
+as.numeric(hw1_q1_df$vec_factor)
+```
+
+```{r convert}
+##convert your character variable from character to factor to numeric; convert your factor variable from factor to character to numeric
+as.numeric(as.factor(hw1_q1_df$vec_character))
+as.numeric(as.character(hw1_q1_df$vec_factor))
+```
+
+**What happens?**
+_Character vectors are not able to be coerced into numeric vectors. This causes a warning message and NA._
+
