@@ -34,13 +34,39 @@ as.numeric(hw1_q1_df$vec_logical)
 as.numeric(hw1_q1_df$vec_character)
 as.numeric(hw1_q1_df$vec_factor)
 ```
+**What happens?**
+_Character vectors are not able to be coerced into numeric vectors. This causes a warning message and NA._
 
 ```{r convert}
 ##convert your character variable from character to factor to numeric; convert your factor variable from factor to character to numeric
 as.numeric(as.factor(hw1_q1_df$vec_character))
 as.numeric(as.character(hw1_q1_df$vec_factor))
 ```
-
 **What happens?**
-_Character vectors are not able to be coerced into numeric vectors. This causes a warning message and NA._
+_If character vectors are converted into factor vectors first, then they can be converted into numeric vectors. Similar to above, character vectors cannot be conerted into numeric vectors so the second function results in a warning message and NA._
+
+## HW 1: Problem 2
+Create a data frame where x and y are a random sample of 1000 in a normal distribution, logical vector that indicates whether x + y > 0, logical vector coerced into a numeric vector, and a logical vector coerced into a factor vector.
+
+```{r create data frame for problem 2}
+set.seed(124)
+hw1_q2_df = tibble(
+  x = rnorm (1000),
+  y = rnorm (1000),
+  vec_logical_xy = x + y > 0,
+  vec_numeric_xy = as.numeric(vec_logical_xy),
+  vec_factor_xy = as.factor(vec_numeric_xy),
+)
+```
+
+```{r short description of inline R code}
+length(hw1_q2_df$x)
+mean(hw1_q2_df$x)
+median(hw1_q2_df$x)
+
+## proportion of logical vector that is TRUE is the number of TRUEs divided by the total length.
+sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)
+```
+
+**The size of the dataset is `r length(hw1_q2_df$x)`. The mean of x is `r mean(hw1_q2_df$x)`. The median of x is `r median(hw1_q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(hw1_q2_df$vec_logical_xy)/length(hw1_q2_df$vec_logical_xy)`.**
 
